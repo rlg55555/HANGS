@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="32dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="HANGS"
+            android:textColor="@color/on_green"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.4"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="ROCK CLIMBING INTERVAL TRAINER"
+            android:textColor="@color/label"
+            android:textSize="9sp"
+            android:letterSpacing="0.25"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- ══ ON / OFF / SESSION cards (3 across) ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginBottom="20dp">
+
+            <!-- ON CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_on"
+                android:padding="10dp"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                    <View android:layout_width="7dp" android:layout_height="7dp"
+                        android:background="@drawable/dot" android:backgroundTint="@color/on_green"
+                        android:layout_marginEnd="5dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="ON" android:textColor="@color/on_green" android:textSize="12sp"
+                        android:textStyle="bold" android:fontFamily="monospace"/>
+                </LinearLayout>
+
+                <TextView android:id="@+id/tvOnDisplay" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="0:10"
+                    android:textColor="@color/text_primary" android:textSize="24sp"
+                    android:textStyle="bold" android:fontFamily="monospace"
+                    android:gravity="center" android:layout_marginBottom="8dp"/>
+
+                <EditText android:id="@+id/etOnDirect" android:layout_width="match_parent"
+                    android:layout_height="32dp" android:hint="H:MM:SS"
+                    android:textColorHint="@color/label" android:textColor="@color/text_primary"
+                    android:textSize="10sp" android:fontFamily="monospace"
+                    android:background="@drawable/field_bg" android:paddingHorizontal="6dp"
+                    android:inputType="text" android:imeOptions="actionDone"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="HRS" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnOnHH_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnOnHH_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_on"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="MIN" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnOnMM_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnOnMM_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_on"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="SEC" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center">
+                    <ImageButton android:id="@+id/btnOnSS_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnOnSS_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_on"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- OFF CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_off"
+                android:padding="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="0dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                    <View android:layout_width="7dp" android:layout_height="7dp"
+                        android:background="@drawable/dot" android:backgroundTint="@color/off_gray"
+                        android:layout_marginEnd="5dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="OFF" android:textColor="@color/off_gray" android:textSize="12sp"
+                        android:textStyle="bold" android:fontFamily="monospace"/>
+                </LinearLayout>
+
+                <TextView android:id="@+id/tvOffDisplay" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="0:40"
+                    android:textColor="@color/text_primary" android:textSize="24sp"
+                    android:textStyle="bold" android:fontFamily="monospace"
+                    android:gravity="center" android:layout_marginBottom="8dp"/>
+
+                <EditText android:id="@+id/etOffDirect" android:layout_width="match_parent"
+                    android:layout_height="32dp" android:hint="H:MM:SS"
+                    android:textColorHint="@color/label" android:textColor="@color/text_primary"
+                    android:textSize="10sp" android:fontFamily="monospace"
+                    android:background="@drawable/field_bg" android:paddingHorizontal="6dp"
+                    android:inputType="text" android:imeOptions="actionDone"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="HRS" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnOffHH_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnOffHH_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_off"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="MIN" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnOffMM_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnOffMM_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_off"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="SEC" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center">
+                    <ImageButton android:id="@+id/btnOffSS_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnOffSS_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_off"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- SESSION CARD -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/card_session"
+                android:padding="10dp"
+                android:layout_marginStart="0dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                    <View android:layout_width="7dp" android:layout_height="7dp"
+                        android:background="@drawable/dot" android:backgroundTint="@color/session_gold"
+                        android:layout_marginEnd="5dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SES" android:textColor="@color/session_gold" android:textSize="12sp"
+                        android:textStyle="bold" android:fontFamily="monospace"/>
+                </LinearLayout>
+
+                <TextView android:id="@+id/tvSessionDisplay" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="10:00"
+                    android:textColor="@color/text_primary" android:textSize="24sp"
+                    android:textStyle="bold" android:fontFamily="monospace"
+                    android:gravity="center" android:layout_marginBottom="8dp"/>
+
+                <EditText android:id="@+id/etSesDirect" android:layout_width="match_parent"
+                    android:layout_height="32dp" android:hint="H:MM:SS"
+                    android:textColorHint="@color/label" android:textColor="@color/text_primary"
+                    android:textSize="10sp" android:fontFamily="monospace"
+                    android:background="@drawable/field_bg" android:paddingHorizontal="6dp"
+                    android:inputType="text" android:imeOptions="actionDone"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="HRS" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnSesHH_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnSesHH_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_session"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="MIN" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnSesMM_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnSesMM_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_session"/>
+                </LinearLayout>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="SEC" android:textColor="@color/label" android:textSize="8sp"
+                    android:fontFamily="monospace" android:gravity="center" android:layout_marginBottom="2dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center">
+                    <ImageButton android:id="@+id/btnSesSS_Dn" style="@style/StepBtn"
+                        android:src="@drawable/ic_minus" android:backgroundTint="@color/btn_bg"/>
+                    <ImageButton android:id="@+id/btnSesSS_Up" style="@style/StepBtn"
+                        android:src="@drawable/ic_plus" android:backgroundTint="@color/btn_session"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══ DIVIDER ══ -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@color/divider" android:layout_marginBottom="20dp"/>
+
+        <!-- ══ RUNNING DISPLAY ══ -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center_horizontal"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <View android:id="@+id/statusIndicator" android:layout_width="12dp"
+                    android:layout_height="12dp" android:background="@drawable/dot"
+                    android:backgroundTint="@color/off_gray" android:layout_marginEnd="8dp"/>
+                <TextView android:id="@+id/tvPhaseLabel" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="READY"
+                    android:textColor="@color/off_gray" android:textSize="18sp"
+                    android:textStyle="bold" android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <TextView android:id="@+id/tvPhaseCountdown" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="--:--"
+                android:textColor="@color/text_primary" android:textSize="60sp"
+                android:textStyle="bold" android:fontFamily="monospace"
+                android:layout_marginBottom="2dp"/>
+
+            <TextView android:id="@+id/tvCycleCount" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Cycles: 0"
+                android:textColor="@color/label" android:textSize="13sp"
+                android:fontFamily="monospace" android:layout_marginBottom="10dp"/>
+
+            <!-- Phase progress -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="PHASE" android:textColor="@color/label" android:textSize="9sp"
+                android:fontFamily="monospace" android:layout_marginBottom="3dp"/>
+            <ProgressBar android:id="@+id/pbPhase" style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="8dp"
+                android:progressBackgroundTint="@color/progress_track"
+                android:layout_marginBottom="10dp" android:progress="0"/>
+
+            <!-- Session progress -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="SESSION" android:textColor="@color/label" android:textSize="9sp"
+                android:fontFamily="monospace" android:layout_marginBottom="3dp"/>
+            <ProgressBar android:id="@+id/pbSession" style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="8dp"
+                android:progressTint="@color/session_gold"
+                android:progressBackgroundTint="@color/progress_track"
+                android:layout_marginBottom="6dp" android:progress="0"/>
+
+            <TextView android:id="@+id/tvSessionRemaining" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Session: 10:00"
+                android:textColor="@color/session_gold" android:textSize="12sp"
+                android:fontFamily="monospace"/>
+        </LinearLayout>
+
+        <!-- ══ START/STOP BUTTON ══ -->
+        <Button android:id="@+id/btnStartStop" android:layout_width="match_parent"
+            android:layout_height="56dp" android:text="START" android:textSize="18sp"
+            android:textStyle="bold" android:fontFamily="monospace" android:letterSpacing="0.1"
+            android:backgroundTint="@color/start_green" android:textColor="@color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Hold +/− for fast adjust  ·  Tap display to type  ·  SES=0 runs unlimited"
+            android:textColor="@color/label" android:textSize="9sp"
+            android:fontFamily="monospace" android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- ══ SESSION LOG ══ -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@color/divider" android:layout_marginBottom="16dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="SESSION LOG"
+                android:textColor="@color/text_primary" android:textSize="13sp"
+                android:textStyle="bold" android:fontFamily="monospace"/>
+            <Button android:id="@+id/btnClearLog" android:layout_width="wrap_content"
+                android:layout_height="32dp" android:text="CLEAR"
+                android:textSize="11sp" android:fontFamily="monospace"
+                android:backgroundTint="@color/btn_bg" android:textColor="@color/label"
+                android:paddingHorizontal="12dp"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvLogEmpty" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No sessions yet. Complete a session to see your history here."
+            android:textColor="@color/label" android:textSize="13sp"
+            android:fontFamily="monospace" android:gravity="center"
+            android:paddingVertical="20dp" android:visibility="visible"/>
+
+        <LinearLayout android:id="@+id/logContainer" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical"/>
+
+    </LinearLayout>
+</ScrollView>
